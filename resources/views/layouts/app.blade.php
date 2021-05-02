@@ -20,6 +20,9 @@
                             <img src="/img/shop.png" alt="">
                         </a>
                         <div class="header__body">
+                            <div class="header__categories">
+                                <product-types/>
+                            </div>
                             <div class="header__links">
                                 <div class="header__link-body">
                                     <a href="/" class="header__link">
@@ -47,9 +50,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="header__categories">
-                                ТУТ БУДУТ КАТЕГОРИИ
-                            </div>
+
                             <div class="header__auth">
                                 ||ЗДЕСЬ БУДЕТ АУТЕНТИФИКАЦИЯ
                             </div>

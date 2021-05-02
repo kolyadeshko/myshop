@@ -62,6 +62,8 @@
     font-size: 19px;
     padding: 5px;
     position: relative;
+    display: flex;
+    align-items: center;
     >.dropdown{
         display: none;
         position: absolute;
@@ -76,6 +78,10 @@
             text-align: center;
         }
     }
+}
+.header__categories{
+    display: flex;
+    align-items: center;
 }
 .header__link{
     display: block;
@@ -115,3 +121,4 @@
 .footer__social-links{
 
 }
+

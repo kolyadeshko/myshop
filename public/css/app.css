@@ -144,6 +144,8 @@ select {
   font-size: 19px;
   padding: 5px;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .header__link-body > .dropdown {
@@ -158,6 +160,11 @@ select {
   border-radius: 5px;
   background-color: #38c172;
   text-align: center;
+}
+
+.header__categories {
+  display: flex;
+  align-items: center;
 }
 
 .header__link {
