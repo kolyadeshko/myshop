@@ -140,6 +140,9 @@ export default {
 .link__item:hover>.link__dropdown{
     display: block;
 }
+.link__item:hover{
+    background-color: #68ca91;
+}
 .link__link:hover>.pointer{
     transform: scale(1.4);
 }

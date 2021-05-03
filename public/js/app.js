@@ -2110,7 +2110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.link__dropdown{\n    display: none;\n    left: 100%;\n    top:0;\n    position: absolute;\n    border:4px solid #298800;\n    border-radius: 2px;\n}\n.link__item{\n    position: relative;\n    background-color: #38c172;\n    padding: 3px 10px;\n}\n.link__link{\n    padding: 5px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.link__item:hover>.link__dropdown{\n    display: block;\n}\n.link__link:hover>.pointer{\n    transform: scale(1.4);\n}\n.pointer{\n    font-size: 21px;\n    margin-left: 10px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.link__dropdown{\n    display: none;\n    left: 100%;\n    top:0;\n    position: absolute;\n    border:4px solid #298800;\n    border-radius: 2px;\n}\n.link__item{\n    position: relative;\n    background-color: #38c172;\n    padding: 3px 10px;\n}\n.link__link{\n    padding: 5px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.link__item:hover>.link__dropdown{\n    display: block;\n}\n.link__item:hover{\n    background-color: #68ca91;\n}\n.link__link:hover>.pointer{\n    transform: scale(1.4);\n}\n.pointer{\n    font-size: 21px;\n    margin-left: 10px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
