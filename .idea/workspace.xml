@@ -19,23 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d5678e1-8921-4e09-bbc7-3dd1e33bb1cd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/Loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ProductTypes.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/Spin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/364c475a-ddac-44e6-83b3-2352ad14d1b9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/364c475a-ddac-44e6-83b3-2352ad14d1b9/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+    <list default="true" id="1d5678e1-8921-4e09-bbc7-3dd1e33bb1cd" name="Default Changelist" comment="Добавил многоуровневое меню типов продуктов">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_27_094515_create_product_types_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_27_094515_create_product_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -177,7 +168,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -210,7 +201,17 @@
       <workItem from="1619771782172" duration="2290000" />
       <workItem from="1619796300420" duration="831000" />
       <workItem from="1619938343551" duration="25687000" />
+      <workItem from="1619983443581" duration="1100000" />
+      <workItem from="1620024723465" duration="460000" />
     </task>
+    <task id="LOCAL-00001" summary="Добавил многоуровневое меню типов продуктов">
+      <created>1619983742095</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619983742095</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +228,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавил многоуровневое меню типов продуктов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил многоуровневое меню типов продуктов" />
   </component>
   <component name="WindowStateProjectService">
     <state x="13" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619938582855">
@@ -266,6 +271,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="57" key="SettingsEditor/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1619340451454" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1619983827976">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1619983827976" />
     <state x="320" y="289" width="341" height="246" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1619515741496">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -274,6 +283,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="283" y="299" width="312" height="244" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1536.824@0.0.1536.824" timestamp="1619518335732" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619983619421">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1619983619421" />
     <state x="130" y="189" key="run.anything.popup" timestamp="1619340480296">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
