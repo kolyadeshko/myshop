@@ -243,4 +243,13 @@ select {
   margin: 0 auto;
 }
 
+.mp__container {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.mp__title {
+  text-align: center;
+}
+
 

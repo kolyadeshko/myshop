@@ -45,7 +45,6 @@ export default {
             axios.get('/api/product-types')
                 .then(response => {
                     this.productTypes = response.data;
-                    console.log(this.productTypes);
                 })
         },
         buildMenu : function (typeObjects)

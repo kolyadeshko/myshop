@@ -25,3 +25,10 @@ Route::get(
         'getProductTypes'
     ]
 );
+Route::get(
+    'get-product-blocks',
+    [
+        App\Http\Controllers\Api\ProductsController::class,
+        'getProductBlocks'
+    ]
+);
