@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
 </head>
 <body>

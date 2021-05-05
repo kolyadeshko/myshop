@@ -19,3 +19,25 @@ Route::get('/', function () {
     return view('index');
 });
 
+
+
+Route::prefix('admin')
+    ->name('admin.')
+    ->group(function (){
+        Route::get(
+            '/add-product',
+            [
+                App\Http\Controllers\Admin\ProductController::class,
+                'create'
+            ]
+        );
+        Route::post(
+            '/add-product',
+            [
+                App\Http\Controllers\Admin\ProductController::class,
+                'store'
+            ]
+        );
+    });
+
+
