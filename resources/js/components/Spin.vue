@@ -1,5 +1,4 @@
 <template>
-
     <img class="spin" src="/img/Loader.gif" alt="">
 </template>
 

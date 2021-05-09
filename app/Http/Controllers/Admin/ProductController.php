@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $img = $request
             -> file('img')
-            -> store('products');
+            -> store('public/products');
 
         $data = $request -> input();
         $data['img'] = $img;

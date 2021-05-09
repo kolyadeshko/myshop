@@ -8,7 +8,10 @@
                             Фильтры
                         </div>
                         <div class="prod-filter__body">
-                            <products-filter :product-type="productType.id"></products-filter>
+                            <products-filter
+                                :product-type="productType.id"
+                                v-on:apply-conditions="applyConditions"
+                            ></products-filter>
                         </div>
                     </div>
                 </div>
@@ -51,21 +54,24 @@ export default {
         this.getProducts()
     },
     data: () => ({
-        conditions: {},
+        conditions: [],
         products: [],
         loading : true
     }),
     methods: {
         getProducts() {
-            axios.get('/api/products', {
-                params: {
-                    type: this.productType.id
-                }
+            axios.get(`/api/products-type/${this.productType.id}`, {
+                params: this.conditions
             })
                 .then(response => {
                     this.products = response.data;
                     this.loading = false
                 })
+        },
+        applyConditions(conditions){
+            this.conditions = conditions;
+            this.loading = true;
+            this.getProducts();
         }
     }
 }
@@ -99,6 +105,7 @@ export default {
 
 .prod-filter__body {
     margin: 10px 0;
+    padding: 0 10px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
@@ -112,12 +119,12 @@ export default {
     padding: 10px;
 }
 .prod-list__title{
-
+    text-align: center;
 }
 .prod-list__body{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     position: relative;
     min-height: 200px;
 }

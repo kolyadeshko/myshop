@@ -35,7 +35,7 @@ Route::get(
 );
 
 Route::get(
-    'products',
+    'products-type/{productsType}',
     [
         \App\Http\Controllers\Api\ProductsController::class,
         'getProductsByConditions'

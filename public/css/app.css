@@ -144,6 +144,7 @@ select {
   display: inline-block;
   padding: 10px;
   background-color: #38c172;
+  cursor: pointer;
 }
 
 .app__header {
@@ -151,6 +152,8 @@ select {
   height: 60px;
   background-color: #38c172;
   box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
 }
 
 .header__row {

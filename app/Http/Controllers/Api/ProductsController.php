@@ -13,39 +13,62 @@ class ProductsController extends Controller
 {
 
 
-
-    public function getProductsByConditions(Request $request)
+    public function getProductsByConditions(Request $request, $productsType)
     {
-        $type = $request -> input( 'type');
-        $products = $this -> getProductsByTypes([$type]);
-        return $products -> get();
+
+        $productsTypes = [$productsType];
+        // проверяем есть ли условие типов продуктов,
+        // если да то присваиваем в переменную productTypes
+        // чтобы потом по этим типам  выполнить фильтрацию
+        $downLevelTypes = $request->input('downLevelTypes');
+
+        if ($downLevelTypes) $productsTypes = $downLevelTypes;
+
+        $products = $this->getProductsByTypes($productsTypes);
+
+        // фыполняем фильтрацию по акциях
+        $promotionType = $request->input('promotionType');
+        if ($promotionType) $products = $this
+            ->getPromotionProductsByFilter($promotionType, $products);
+
+
+        return $products->orderBy('id')->get();
+    }
+
+    private function getPromotionProductsByFilter($promotionType, $products)
+    {
+        if ($promotionType === 'without') {
+            $products = $products->whereNull('discount_price');
+        } elseif ($promotionType === 'with') {
+            $products = $products->whereNotNull('discount_price');
+        }
+        return $products;
     }
 
     private function getPromotionProducts()
     {
         return Product::query()
-            -> whereNotNull('discount_price');
+            ->whereNotNull('discount_price');
     }
 
     public function getProductBlocks(Request $request)
     {
-        $productType = $request -> input('type');
+        $productType = $request->input('type');
         // проверяем, если нужны акционные товары, то
         // вызываем функцию getPromotionProducts
-        if ($productType == 'promotion-products')
-        {
-            $products = $this -> getPromotionProducts();
+        if ($productType == 'promotion-products') {
+            $products = $this->getPromotionProducts();
         } else {
             // если такого типа нету,выдаем ошибку
             abort_if(
-                !ProductType::query() -> where('id',$productType) -> exists(),
+                !ProductType::query()->where('id', $productType)->exists(),
                 404,
                 'Not existing product type'
             );
-            $products = $this -> getProductsByTypes([$productType]);
+            $products = $this->getProductsByTypes([$productType]);
         }
 
-        return $products -> limit(4) -> get();
+        return $products->limit(4)->inRandomOrder()->get();
     }
 
     /**
@@ -55,17 +78,17 @@ class ProductsController extends Controller
     private function getProductsByTypes(array $productTypesIds)
     {
         // получаем все типы продуктов в виде массива
-        $productTypes = ProductType::all() -> toArray();
+        $productTypes = ProductType::all()->toArray();
         // получаем массив идентификаторов категорий, и всех их
         // дочерних категорий
-        $productTypesChildrenIds = $this->getChildren($productTypesIds,$productTypes);
+        $productTypesChildrenIds = $this->getChildren($productTypesIds, $productTypes);
         return Product::query()
-            -> whereIn('type_id',$productTypesChildrenIds);
+            ->whereIn('type_id', $productTypesChildrenIds);
     }
 
     // ids - список идентификаторов категорий, потомков которых мы хотим найти
     // elements - список всех категорий
-    private function getChildren($ids,$elements)
+    private function getChildren($ids, $elements)
     {
         // создаем объект клсса TreeBuilder
         $builder = App::make(TreeBuilder::class);
@@ -76,7 +99,7 @@ class ProductsController extends Controller
             // и добавляем в список childrenIds
             $childrenIds = array_merge(
                 $childrenIds,
-                $builder -> getChildren($elements,$id)
+                $builder->getChildren($elements, $id)
             );
         }
         return $childrenIds;
