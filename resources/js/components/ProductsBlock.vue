@@ -1,8 +1,8 @@
 <template>
     <div class="pb__body">
-        <div class="pb__title">
+        <a :href="getUrl()" class="pb__title title2">
             {{ title }}
-        </div>
+        </a>
         <spin v-if="loading"></spin>
         <div class="pb__row" v-else>
             <product-card
@@ -52,6 +52,17 @@ export default {
                     this.products = response.data;
                     this.loading = false;
                 })
+        },
+        getUrl()
+        {
+            if (this.type === 'promotion-products')
+            {
+                return this.type;
+            }
+            else
+            {
+                return '/products-type/' + this.type;
+            }
         }
     }
 }
@@ -59,15 +70,21 @@ export default {
 
 <style scoped>
 .pb__body {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: relative;
+    min-height: 200px;
 }
 
 .pb__title {
-
+    margin:5px 15px;
 }
 
 .pb__row {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pb__row>*{
+    flex: 0 1 22%;
 }
 </style>

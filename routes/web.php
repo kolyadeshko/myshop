@@ -19,7 +19,10 @@ Route::get('/', function () {
     return view('index');
 });
 
-
+Route::get('/products-type/{typeId}',[
+    \App\Http\Controllers\ProductsController::class,
+    'getProductsByType'
+]);
 
 Route::prefix('admin')
     ->name('admin.')

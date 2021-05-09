@@ -12,20 +12,13 @@ use Illuminate\Support\Facades\App;
 class ProductsController extends Controller
 {
 
-    /**
-     * Получаем типы продуктов в виде дерева
-     *
-     * @param TreeBuilder $builder
-     * @return array
-     */
-    public function getProductTypes(TreeBuilder $builder)
+
+
+    public function getProductsByConditions(Request $request)
     {
-        // получаем все типы продуктов в виде массива
-        $types = \App\Models\ProductType::all()
-            -> toArray();
-        // преобразовуем в древовидную структуру
-        $types = $builder -> buildTree($types);
-        return $types;
+        $type = $request -> input( 'type');
+        $products = $this -> getProductsByTypes([$type]);
+        return $products -> get();
     }
 
     private function getPromotionProducts()
@@ -39,7 +32,6 @@ class ProductsController extends Controller
         $productType = $request -> input('type');
         // проверяем, если нужны акционные товары, то
         // вызываем функцию getPromotionProducts
-
         if ($productType == 'promotion-products')
         {
             $products = $this -> getPromotionProducts();
@@ -56,6 +48,10 @@ class ProductsController extends Controller
         return $products -> limit(4) -> get();
     }
 
+    /**
+     * @param array $productTypesIds
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
     private function getProductsByTypes(array $productTypesIds)
     {
         // получаем все типы продуктов в виде массива
@@ -67,11 +63,17 @@ class ProductsController extends Controller
             -> whereIn('type_id',$productTypesChildrenIds);
     }
 
+    // ids - список идентификаторов категорий, потомков которых мы хотим найти
+    // elements - список всех категорий
     private function getChildren($ids,$elements)
     {
+        // создаем объект клсса TreeBuilder
         $builder = App::make(TreeBuilder::class);
+        // массив из id всех потомков
         $childrenIds = [];
         foreach ($ids as $id) {
+            // для каждого идентификатора находим всех потомков
+            // и добавляем в список childrenIds
             $childrenIds = array_merge(
                 $childrenIds,
                 $builder -> getChildren($elements,$id)

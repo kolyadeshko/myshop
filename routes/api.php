@@ -17,18 +17,36 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+// Возвращает список типов продуктов в иерархической форме
 Route::get(
     'product-types',
     [
-        App\Http\Controllers\Api\ProductsController::class,
+        App\Http\Controllers\Api\ProductTypes::class,
         'getProductTypes'
     ]
 );
+// Получает 4 продукта по заданному типу для главной страницы
 Route::get(
     'get-product-blocks',
     [
         App\Http\Controllers\Api\ProductsController::class,
         'getProductBlocks'
+    ]
+);
+
+Route::get(
+    'products',
+    [
+        \App\Http\Controllers\Api\ProductsController::class,
+        'getProductsByConditions'
+    ]
+);
+
+// по этому маршруту мы будем получать данные для фильтра продуктов
+Route::get(
+    'products-filter/{typeId}',
+    [
+        \App\Http\Controllers\Api\ConditionController::class,
+        'getConditionsForProductsFilter'
     ]
 );

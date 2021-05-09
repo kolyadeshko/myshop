@@ -57,7 +57,7 @@ export default {
                 let link = "";
                 let hasChildren = 'children' in typeObject;
                 link =
-                    `<a class="link__link" href='/category/${typeObject.id}'>`+
+                    `<a class="link__link" href='/products-type/${typeObject.id}'>`+
                     `<div class="link__text">${typeObject.name}</div>` + (hasChildren ? pointer : "") +
                     `</a>`
                 if (hasChildren)
@@ -108,6 +108,7 @@ export default {
 }
 .prod-types__main-drop{
     position: absolute;
+    z-index: 1;
     top:100%;
     left: 0;
     user-select: none;

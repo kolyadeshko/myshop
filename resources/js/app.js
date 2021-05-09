@@ -1,4 +1,3 @@
-
 window.Vue = require('vue').default;
 
 
@@ -10,6 +9,7 @@ Vue.component('product-types',require('./components/ProductTypes.vue').default);
 Vue.component('form-input',require('./components/FormInput.vue').default)
 Vue.component('products-block',require('./components/ProductsBlock.vue').default);
 Vue.component('product-card',require('./components/ProductCard.vue').default);
+Vue.component('products',require('./components/Products.vue').default);
 
 const app = new Vue({
     el: '#app'
