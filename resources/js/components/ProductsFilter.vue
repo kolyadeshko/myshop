@@ -1,6 +1,6 @@
 <template>
     <div class="prod-filter">
-        <div class="prod-filter__body">
+        <div class="prod-filter__row">
             <spin v-if="loading"></spin>
             <div class="prod-filter__item" v-else-if="!loading && conditions.downLevelTypes">
                 <div class="prod-filter__title title3">
@@ -28,7 +28,7 @@
                 </div><hr>
             </div>
 
-            <div class="prod-filter__item">
+            <div v-if="productType !== 0" class="prod-filter__item">
                 <div class="prod-filter__title title3">
                     Акции
                 </div>
@@ -123,7 +123,7 @@ export default {
 
 }
 
-.prod-filter__body {
+.prod-filter__row {
     padding: 10px;
     position: relative;
 }

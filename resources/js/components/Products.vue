@@ -61,7 +61,10 @@ export default {
     methods: {
         getProducts() {
             axios.get(`/api/products-type/${this.productType.id}`, {
-                params: this.conditions
+                params: {
+                    'downLevelTypes' : this.conditions.downLevelTypes,
+                    'promotionType' : this.productType.id == 0 ? 'with' : this.conditions.promotionType
+                }
             })
                 .then(response => {
                     this.products = response.data;

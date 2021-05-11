@@ -2102,7 +2102,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/products-type/".concat(this.productType.id), {
-        params: this.conditions
+        params: {
+          'downLevelTypes': this.conditions.downLevelTypes,
+          'promotionType': this.productType.id == 0 ? 'with' : this.conditions.promotionType
+        }
       }).then(function (response) {
         _this.products = response.data;
         _this.loading = false;
@@ -2590,7 +2593,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.prod-filter[data-v-2ade09b2] {\n}\n.prod-filter__body[data-v-2ade09b2] {\n    padding: 10px;\n    position: relative;\n}\n.prod-filter__item[data-v-2ade09b2] {\n    margin: 10px 0;\n}\n.prod-filter__title[data-v-2ade09b2] {\n}\n.prod-filter__types[data-v-2ade09b2] {\n}\n.type[data-v-2ade09b2] {\n}\n.type__item[data-v-2ade09b2] {\n}\n.type__input[data-v-2ade09b2] {\n}\n.type__text[data-v-2ade09b2] {\n}\n.input[data-v-2ade09b2] {\n}\n.input__text[data-v-2ade09b2] {\n    color: #4a5568;\n    text-shadow: none;\n}\n.prod-filter__button[data-v-2ade09b2] {\n    margin: 10px auto;\n    width: 100%;\n    text-align: center;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.prod-filter[data-v-2ade09b2] {\n}\n.prod-filter__row[data-v-2ade09b2] {\n    padding: 10px;\n    position: relative;\n}\n.prod-filter__item[data-v-2ade09b2] {\n    margin: 10px 0;\n}\n.prod-filter__title[data-v-2ade09b2] {\n}\n.prod-filter__types[data-v-2ade09b2] {\n}\n.type[data-v-2ade09b2] {\n}\n.type__item[data-v-2ade09b2] {\n}\n.type__input[data-v-2ade09b2] {\n}\n.type__text[data-v-2ade09b2] {\n}\n.input[data-v-2ade09b2] {\n}\n.input__text[data-v-2ade09b2] {\n    color: #4a5568;\n    text-shadow: none;\n}\n.prod-filter__button[data-v-2ade09b2] {\n    margin: 10px auto;\n    width: 100%;\n    text-align: center;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4007,7 +4010,7 @@ var render = function() {
   return _c("div", { staticClass: "prod-filter" }, [
     _c(
       "div",
-      { staticClass: "prod-filter__body" },
+      { staticClass: "prod-filter__row" },
       [
         _vm.loading
           ? _c("spin")
@@ -4091,120 +4094,124 @@ var render = function() {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "prod-filter__item" }, [
-          _c("div", { staticClass: "prod-filter__title title3" }, [
-            _vm._v("\n                Акции\n            ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "prod__promotions" }, [
-            _c("div", { staticClass: "promotions" }, [
-              _c("div", { staticClass: "promotion__item" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.promotionType,
-                      expression: "promotionType"
-                    }
-                  ],
-                  staticClass: "promotions__input input",
-                  attrs: {
-                    type: "radio",
-                    name: "promotion",
-                    value: "all",
-                    id: "promotions-all"
-                  },
-                  domProps: { checked: _vm._q(_vm.promotionType, "all") },
-                  on: {
-                    change: function($event) {
-                      _vm.promotionType = "all"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "input__text",
-                    attrs: { for: "promotions-all" }
-                  },
-                  [_vm._v("Все")]
-                )
+        _vm.productType !== 0
+          ? _c("div", { staticClass: "prod-filter__item" }, [
+              _c("div", { staticClass: "prod-filter__title title3" }, [
+                _vm._v("\n                Акции\n            ")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "promotion__item" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.promotionType,
-                      expression: "promotionType"
-                    }
-                  ],
-                  staticClass: "promotions__input input",
-                  attrs: {
-                    type: "radio",
-                    value: "with",
-                    name: "promotion",
-                    id: "promotions-with"
-                  },
-                  domProps: { checked: _vm._q(_vm.promotionType, "with") },
-                  on: {
-                    change: function($event) {
-                      _vm.promotionType = "with"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "input__text",
-                    attrs: { for: "promotions-with" }
-                  },
-                  [_vm._v("Только акционные")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "promotion__item" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.promotionType,
-                      expression: "promotionType"
-                    }
-                  ],
-                  staticClass: "promotions__input input",
-                  attrs: {
-                    type: "radio",
-                    name: "promotion",
-                    value: "without",
-                    id: "promotions-without"
-                  },
-                  domProps: { checked: _vm._q(_vm.promotionType, "without") },
-                  on: {
-                    change: function($event) {
-                      _vm.promotionType = "without"
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "input__text",
-                    attrs: { for: "promotions-without" }
-                  },
-                  [_vm._v("Только без акции")]
-                )
+              _c("div", { staticClass: "prod__promotions" }, [
+                _c("div", { staticClass: "promotions" }, [
+                  _c("div", { staticClass: "promotion__item" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.promotionType,
+                          expression: "promotionType"
+                        }
+                      ],
+                      staticClass: "promotions__input input",
+                      attrs: {
+                        type: "radio",
+                        name: "promotion",
+                        value: "all",
+                        id: "promotions-all"
+                      },
+                      domProps: { checked: _vm._q(_vm.promotionType, "all") },
+                      on: {
+                        change: function($event) {
+                          _vm.promotionType = "all"
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "input__text",
+                        attrs: { for: "promotions-all" }
+                      },
+                      [_vm._v("Все")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "promotion__item" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.promotionType,
+                          expression: "promotionType"
+                        }
+                      ],
+                      staticClass: "promotions__input input",
+                      attrs: {
+                        type: "radio",
+                        value: "with",
+                        name: "promotion",
+                        id: "promotions-with"
+                      },
+                      domProps: { checked: _vm._q(_vm.promotionType, "with") },
+                      on: {
+                        change: function($event) {
+                          _vm.promotionType = "with"
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "input__text",
+                        attrs: { for: "promotions-with" }
+                      },
+                      [_vm._v("Только акционные")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "promotion__item" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.promotionType,
+                          expression: "promotionType"
+                        }
+                      ],
+                      staticClass: "promotions__input input",
+                      attrs: {
+                        type: "radio",
+                        name: "promotion",
+                        value: "without",
+                        id: "promotions-without"
+                      },
+                      domProps: {
+                        checked: _vm._q(_vm.promotionType, "without")
+                      },
+                      on: {
+                        change: function($event) {
+                          _vm.promotionType = "without"
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "input__text",
+                        attrs: { for: "promotions-without" }
+                      },
+                      [_vm._v("Только без акции")]
+                    )
+                  ])
+                ])
               ])
             ])
-          ])
-        ]),
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "div",

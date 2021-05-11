@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    // отдаем представление для продуктов по категориям
+    // передаем тип продукта
     public function getProductsByType($typeId)
     {
         $type = ProductType::query() ->find($typeId);
@@ -14,4 +16,5 @@ class ProductsController extends Controller
             'type' => $type
         ]);
     }
+
 }

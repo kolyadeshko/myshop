@@ -24,6 +24,8 @@ Route::get('/products-type/{typeId}',[
     'getProductsByType'
 ]);
 
+Route::view('/promotion-products','products.promotionProducts');
+
 Route::prefix('admin')
     ->name('admin.')
     ->group(function (){
