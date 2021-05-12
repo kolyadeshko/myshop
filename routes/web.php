@@ -46,3 +46,36 @@ Route::prefix('admin')
     });
 
 
+
+
+Route::name('auth.') -> group(function (){
+    Route::get(
+        'login',
+        [
+            App\Http\Controllers\Auth\LoginController::class,
+            'loginForm'
+        ]
+    );
+    Route::post(
+        'login',
+        [
+            App\Http\Controllers\Auth\LoginController::class,
+            'login'
+        ]
+    );
+    Route::get(
+        'register',
+        [
+            App\Http\Controllers\Auth\RegisterController::class,
+            'registerForm'
+        ]
+    );
+    Route::post(
+        'register',
+        [
+            App\Http\Controllers\Auth\RegisterController::class,
+            'register'
+        ]
+    );
+});
+

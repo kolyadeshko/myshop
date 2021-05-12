@@ -32,7 +32,7 @@
                                     </a>
                                 </div>
                                 <div class="header__link-body">
-                                    <a href="/stocks" class="header__link">
+                                    <a href="/promotion-products" class="header__link">
                                         Акции %
                                     </a>
                                 </div>

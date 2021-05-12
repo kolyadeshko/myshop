@@ -1910,9 +1910,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProductCard",
-  props: ['product']
+  props: ['product'],
+  methods: {
+    calcDiscountPercents: function calcDiscountPercents() {
+      return Math.round((this.product.price - this.product.discount_price) / this.product.price * 100);
+    }
+  }
 });
 
 /***/ }),
@@ -2473,7 +2481,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.prod-card[data-v-1a457ff8]{\n    display: block;\n}\n.prod-card__body[data-v-1a457ff8]{\n    padding: 5px;\n    /*height: 400px;*/\n    overflow: hidden;\n    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n}\n.prod-card__row:hover > .prod-card__img[data-v-1a457ff8]{\n    transform: scale(1.05);\n}\n.prod-card__row[data-v-1a457ff8]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n.prod-card__row>*[data-v-1a457ff8]{\n    margin: 10px 0;\n}\n.prod-card__img[data-v-1a457ff8]{\n    height: 300px;\n    transition: all 0.05s;\n}\n.prod-card__img>img[data-v-1a457ff8]{\n    display: block;\n    max-height: 100%;\n}\n.prod-card__name[data-v-1a457ff8]{\n    font-size: 20px;\n    text-align: center;\n    padding: 0 10px;\n}\n.prod-card__price[data-v-1a457ff8]{\n}\n.price[data-v-1a457ff8]{\n    color: green;\n    font-size: 25px;\n}\n.price.through[data-v-1a457ff8]{\n    text-decoration: line-through;\n    color:red;\n    font-size: 19px;\n}\n.discount-price[data-v-1a457ff8]{\n    font-size: 25px;\n    color: green;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.prod-card[data-v-1a457ff8]{\n    display: block;\n}\n.prod-card__body[data-v-1a457ff8]{\n    padding: 5px;\n    position:relative;\n    /*height: 400px;*/\n    overflow: hidden;\n    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n}\n.prod-card__row:hover > .prod-card__img[data-v-1a457ff8]{\n    transform: scale(1.05);\n}\n.prod-card__row[data-v-1a457ff8]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n.prod-card__row>*[data-v-1a457ff8]{\n    margin: 10px 0;\n}\n.prod-card__img[data-v-1a457ff8]{\n    height: 300px;\n    transition: all 0.05s;\n}\n.prod-card__img>img[data-v-1a457ff8]{\n    display: block;\n    max-height: 100%;\n}\n.prod-card__name[data-v-1a457ff8]{\n    font-size: 20px;\n    text-align: center;\n    padding: 0 10px;\n}\n.prod-card__price[data-v-1a457ff8]{\n}\n.price[data-v-1a457ff8]{\n    color: green;\n    font-size: 25px;\n}\n.price.through[data-v-1a457ff8]{\n    text-decoration: line-through;\n    color:red;\n    font-size: 19px;\n}\n.discount-price[data-v-1a457ff8]{\n    font-size: 25px;\n    color: green;\n}\n.prod-card__discount-percents[data-v-1a457ff8]{\n    position: absolute;\n    top:0;\n    right: 0;\n    padding: 10px;\n    background-color: red;\n    border-bottom-left-radius: 50%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2545,7 +2553,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.products[data-v-57b394cf] {\n}\n.products__container[data-v-57b394cf] {\n    padding:10px;\n    display: flex;\n}\n.products__filter[data-v-57b394cf] {\n    flex: 1 1 25%;\n}\n.prod-filter[data-v-57b394cf] {\n}\n.prod-filter__container[data-v-57b394cf] {\n    padding: 10px;\n}\n.prod-filter__title[data-v-57b394cf] {\n    text-align: center;\n}\n.prod-filter__body[data-v-57b394cf] {\n    margin: 10px 0;\n    padding: 0 10px;\n    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n}\n.products__list[data-v-57b394cf]{\n    flex: 1 1 75%;\n}\n.prod-list[data-v-57b394cf]{\n}\n.prod-list__container[data-v-57b394cf]{\n    padding: 10px;\n}\n.prod-list__title[data-v-57b394cf]{\n    text-align: center;\n}\n.prod-list__body[data-v-57b394cf]{\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    position: relative;\n    min-height: 200px;\n}\n.prod-list__body>*[data-v-57b394cf]{\n    flex: 0 1 45%;\n    margin: 10px 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.products[data-v-57b394cf] {\n}\n.products__container[data-v-57b394cf] {\n    padding:10px;\n    display: flex;\n}\n.products__filter[data-v-57b394cf] {\n    flex: 1 1 25%;\n}\n.prod-filter[data-v-57b394cf] {\n}\n.prod-filter__container[data-v-57b394cf] {\n    padding: 10px;\n}\n.prod-filter__title[data-v-57b394cf] {\n    text-align: center;\n}\n.prod-filter__body[data-v-57b394cf] {\n    margin: 10px 0;\n    padding: 0 10px;\n    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;\n}\n.products__list[data-v-57b394cf]{\n    flex: 1 1 75%;\n}\n.prod-list[data-v-57b394cf]{\n}\n.prod-list__container[data-v-57b394cf]{\n    padding: 10px;\n}\n.prod-list__title[data-v-57b394cf]{\n    text-align: center;\n}\n.prod-list__body[data-v-57b394cf]{\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    position: relative;\n    min-height: 200px;\n}\n.prod-list__body>*[data-v-57b394cf]{\n    flex: 0 1 30%;\n    margin: 10px 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3740,6 +3748,16 @@ var render = function() {
               attrs: { src: "/storage/" + _vm.product.img, alt: "" }
             })
           ]),
+          _vm._v(" "),
+          _vm.product.discount_price
+            ? _c("div", { staticClass: "prod-card__discount-percents" }, [
+                _vm._v(
+                  "\n                -" +
+                    _vm._s(_vm.calcDiscountPercents()) +
+                    "%\n            "
+                )
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("div", { staticClass: "prod-card__name title3" }, [
             _vm._v(

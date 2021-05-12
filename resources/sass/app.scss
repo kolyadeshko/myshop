@@ -24,6 +24,9 @@
     font-family: Roboto;
     color: #606060;
 }
+@mixin cool-box-shadow{
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
 .title1{
     font-size: 25px;
     @include cool-text;
@@ -177,58 +180,58 @@
 .mp__products-block{
     margin: 10px 0;
 }
-// Стили продуктов
-.products {
+
+// аутентификация
+.register{
 
 }
-
-.products__container {
-    padding:10px;
+.register__container{
+    max-width: 40%;
+    margin: 30px auto;
+    @include cool-box-shadow;
+    padding: 20px;
+}
+.register__row{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.products__filter {
-    flex: 1 1 25%;
-}
-
-.prod-filter {
-
-}
-
-.prod-filter__container {
-    padding: 10px;
-}
-
-.prod-filter__title {
+.register__title{
     text-align: center;
+    margin: 10px 0 20px 0;
 }
-
-.prod-filter__body {
-    margin: 10px 0;
-    padding: 0 10px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+.register__body{
+    min-width: 100%;
 }
-
-.products__list{
-    flex: 1 1 75%;
-}
-.prod-list{
+.register__form{
 
 }
-.prod-list__container{
-    padding: 10px;
+
+.form{
+
 }
-.prod-list__title{
-    text-align: center;
+.form__item{
+    margin: 10px;
 }
-.prod-list__body{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    position: relative;
-    min-height: 200px;
+.form__title{
+
 }
-.prod-list__body>*{
-    flex: 0 1 45%;
-    margin: 10px 0;
+.form__input{
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    padding:5px;
+    color: black;
+    text-shadow: none;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    transition: border-bottom-color 0.3s ;
+    border-bottom: 3px solid #f6f6f6;
+    &:focus{
+        border-bottom-color: $green;
+    }
+}
+.form__submit{
+    display: block;
+    margin: 0 auto;
 }

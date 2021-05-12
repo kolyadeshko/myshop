@@ -5,6 +5,9 @@
                 <div class="prod-card__img">
                     <img :src="'/storage/' + product.img" alt="">
                 </div>
+                <div v-if="product.discount_price" class="prod-card__discount-percents">
+                    -{{ calcDiscountPercents() }}%
+                </div>
                 <div class="prod-card__name title3">
                     {{ product.name }}
                 </div>
@@ -23,7 +26,13 @@
 <script>
 export default {
     name: "ProductCard",
-    props : ['product']
+    props : ['product'],
+    methods : {
+        calcDiscountPercents(){
+            return Math.round((this.product.price - this.product.discount_price) / this.product.price * 100);
+        }
+    }
+
 }
 </script>
 
@@ -33,6 +42,7 @@ export default {
 }
 .prod-card__body{
     padding: 5px;
+    position:relative;
     /*height: 400px;*/
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
@@ -77,5 +87,14 @@ export default {
 .discount-price{
     font-size: 25px;
     color: green;
+}
+.prod-card__discount-percents{
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 10px;
+    background-color: red;
+    border-bottom-left-radius: 50%;
+
 }
 </style>

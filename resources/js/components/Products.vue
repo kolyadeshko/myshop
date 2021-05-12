@@ -132,7 +132,7 @@ export default {
     min-height: 200px;
 }
 .prod-list__body>*{
-    flex: 0 1 45%;
+    flex: 0 1 30%;
     margin: 10px 0;
 }
 </style>
