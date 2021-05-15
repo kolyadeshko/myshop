@@ -8,98 +8,128 @@
 @import "reset";
 
 
-
 // СТИЛИ
-#app{
+#app {
 
 }
-.app__container{
-    .content{
+
+.app__container {
+    .content {
         min-height: calc(100vh - 80px);
     }
 }
+
 // ОБЩИЕ СТИИЛИ
-@mixin cool-text{
+@mixin cool-text {
     text-shadow: none;
     font-family: Roboto;
     color: #606060;
 }
-@mixin cool-box-shadow{
+
+@mixin cool-box-shadow {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
-.title1{
+
+.title1 {
     font-size: 25px;
     @include cool-text;
 }
-.title2{
+
+.title2 {
     font-size: 20px;
     @include cool-text;
 }
-.title3{
+
+.title3 {
     font-size: 18px;
     @include cool-text;
 }
-.title4{
-     font-size: 16px;
-     @include cool-text;
- }
-.container{
+
+.title4 {
+    font-size: 16px;
+    @include cool-text;
+}
+
+.container {
     max-width: 80%;
     margin: 0 auto;
     padding: 15px;
 }
-.body{
+
+.body {
     margin: 10px;
 }
-.button{
+
+.button {
     font-size: 19px;
     display: inline-block;
     padding: 10px;
-    background-color:$green;
+    background-color: $green;
     cursor: pointer;
+}
+
+.danger-text {
+    text-shadow: none;
+    color: #ff2121;
+    font-size: 15px;
+}
+.link{
+    color: #1a202c;
+    text-shadow: none;
+    text-decoration: underline;
 }
 
 
 // Хэдер
-.app__header{
-    width : 100%;
+.app__header {
+    width: 100%;
     height: 60px;
     background-color: $green;
-    box-shadow: 0 5px 0 0 rgba(0,0,0,0.2);
+    box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 2;
 }
-.header{
+
+.header {
 
 }
-.header__container{
+
+.header__container {
 
 }
-.header__row{
+
+.header__row {
     display: flex;
+
     & > * {
         margin: 0 5px;
     }
 }
-.header__logo{
+
+.header__logo {
     flex: 0 0 auto;
     height: 60px;
     padding: 10px 10px 10px 20px;
     display: block;
-    & > img{
+
+    & > img {
         display: block;
         height: 100%;
     }
 }
-.header__body{
+
+.header__body {
     flex: 1 1 auto;
     display: flex;
+    justify-content: space-between;
 }
-.header__links{
+
+.header__links {
     display: flex;
     align-items: center;
 }
-.header__link-body{
+
+.header__link-body {
     margin: 0 9px;
     color: white;
     font-size: 19px;
@@ -107,14 +137,16 @@
     position: relative;
     display: flex;
     align-items: center;
-    >.dropdown{
+
+    > .dropdown {
         display: none;
         position: absolute;
-        top : 100%;
-        left:0;
+        top: 100%;
+        left: 0;
     }
-    &:hover{
-        >.dropdown{
+
+    &:hover {
+        > .dropdown {
             display: block;
             border-radius: 5px;
             background-color: $green;
@@ -122,116 +154,165 @@
         }
     }
 }
-.header__categories{
+
+.header__categories {
     display: flex;
     align-items: center;
 }
-.header__link{
+
+.header__link {
     display: block;
     color: white;
     font-size: 19px;
     transition: transform 0.3s;
-    &:hover{
-        transform: scale(1.1);
-    }
 }
-.dropdown__link
-{
+
+.dropdown__link {
     display: block;
     padding: 10px;
     background-color: $green;
-    &:hover{
+
+    &:hover {
         background-color: #43c87a;
     }
 }
 
-// FOOTER
-.app__footer{
-    background-color: $green;
-    box-shadow: 0 -5px 0 0 rgba(0,0,0,0.2);
-}
-.footer{
+.header__auth {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
 }
-.footer__container{
+.auth-links{
+}
+.auth-links__item{
+    margin: 0 10px ;
+}
+.user-img{
+    display: block;
+    max-height: 20px;
+    margin:0 10px;
+}
+
+// FOOTER
+.app__footer {
+    background-color: $green;
+    box-shadow: 0 -5px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+
+}
+
+.footer__container {
     max-width: 80%;
     margin: 0 auto;
 }
-.footer__row
-{
+
+.footer__row {
 
 }
-.footer__social-links{
+
+.footer__social-links {
 
 }
 
 
 // ГЛАВНАЯ СТРАНИЦА
-.mp__container{
+.mp__container {
     width: 90%;
     margin: 20px auto;
 }
-.mp__title{
+
+.mp__title {
     text-align: center;
 }
-.mp__body{
+
+.mp__body {
 
 }
-.mp__products-block{
+
+.mp__products-block {
     margin: 10px 0;
 }
 
 // аутентификация
-.register{
+.auth {
 
 }
-.register__container{
+
+.auth__container {
     max-width: 40%;
     margin: 30px auto;
     @include cool-box-shadow;
     padding: 20px;
 }
-.register__row{
+
+.auth__row {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.register__title{
+
+.auth__title {
     text-align: center;
     margin: 10px 0 20px 0;
 }
-.register__body{
+
+.auth__body {
     min-width: 100%;
 }
-.register__form{
+
+.auth__form {
 
 }
 
-.form{
+.form {
 
 }
-.form__item{
+
+.form__item {
     margin: 10px;
 }
-.form__title{
+
+.form__title {
 
 }
-.form__input{
+
+.form__input {
     width: 100%;
     border: none;
     font-size: 20px;
-    padding:5px;
+    padding: 5px;
     color: black;
     text-shadow: none;
     background-color: #f6f6f6;
     border-radius: 5px;
-    transition: border-bottom-color 0.3s ;
+    transition: border-bottom-color 0.3s;
     border-bottom: 3px solid #f6f6f6;
-    &:focus{
+
+    &:focus {
         border-bottom-color: $green;
     }
 }
-.form__submit{
+
+.form__submit {
     display: block;
     margin: 0 auto;
 }
+
+.form__errors {
+
+}
+
+.form__checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+.additional-info{
+    margin: 20px 0 0 0;
+}
+
+
+

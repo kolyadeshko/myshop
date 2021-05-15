@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title','Регистрация')
+@section('title','Авторизация')
 @section('content')
     <div class="auth">
         <div class="auth__container">
             <div class="auth__row">
                 <div class="auth__title title1">
-                    Регистрация
+                    Авторизация
                 </div>
                 <div class="auth__body">
                     <div class="auth__form">
@@ -15,20 +15,10 @@
                                 <label for="username" class="form__title title3">
                                     Имя пользователя :
                                 </label>
-                                <input value="{{ old('username') }}" id="username" name="username" class="form__input" type="text">
+                                <input value="{{ old('username') }}" id="username" name="username" class="form__input"
+                                       type="text">
                                 <div class="form__errors danger-text">
                                     @error('username')
-                                    {{ $message }}
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="form__item">
-                                <label for="email" class="form__title title3">
-                                    Адрес электронной почты :
-                                </label>
-                                <input value="{{ old('email') }}" id="email" name="email" type="text" class="form__input">
-                                <div class="form__errors danger-text">
-                                    @error('email')
                                     {{ $message }}
                                     @enderror
                                 </div>
@@ -44,17 +34,25 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form__item">
+                                <label for="remember" class="form__title title3">
+                                    Запомнить меня :
+                                </label>
+                                <input id="remember" type="checkbox" name="remember" class="form__checkbox">
+                            </div>
+
                             <input type="submit" class="form__submit button">
                         </form>
                     </div>
                 </div>
                 <div class="additional-info">
                     <div class="title4">
-                        Уже есть учетная запись?
-                        <a href="/login" class="link">Войти</a>
+                        Нет учетной записи?
+                        <a href="/register" class="link">Зарегистрируйся</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+

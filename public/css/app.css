@@ -148,6 +148,18 @@ select {
   cursor: pointer;
 }
 
+.danger-text {
+  text-shadow: none;
+  color: #ff2121;
+  font-size: 15px;
+}
+
+.link {
+  color: #1a202c;
+  text-shadow: none;
+  text-decoration: underline;
+}
+
 .app__header {
   width: 100%;
   height: 60px;
@@ -180,6 +192,7 @@ select {
 .header__body {
   flex: 1 1 auto;
   display: flex;
+  justify-content: space-between;
 }
 
 .header__links {
@@ -223,10 +236,6 @@ select {
   transition: transform 0.3s;
 }
 
-.header__link:hover {
-  transform: scale(1.1);
-}
-
 .dropdown__link {
   display: block;
   padding: 10px;
@@ -235,6 +244,22 @@ select {
 
 .dropdown__link:hover {
   background-color: #43c87a;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.auth-links__item {
+  margin: 0 10px;
+}
+
+.user-img {
+  display: block;
+  max-height: 20px;
+  margin: 0 10px;
 }
 
 .app__footer {
@@ -260,25 +285,25 @@ select {
   margin: 10px 0;
 }
 
-.register__container {
+.auth__container {
   max-width: 40%;
   margin: 30px auto;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   padding: 20px;
 }
 
-.register__row {
+.auth__row {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.register__title {
+.auth__title {
   text-align: center;
   margin: 10px 0 20px 0;
 }
 
-.register__body {
+.auth__body {
   min-width: 100%;
 }
 
@@ -306,6 +331,16 @@ select {
 .form__submit {
   display: block;
   margin: 0 auto;
+}
+
+.form__checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.additional-info {
+  margin: 20px 0 0 0;
 }
 
 
