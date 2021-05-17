@@ -6,6 +6,7 @@
         <spin v-if="loading"></spin>
         <div class="pb__row" v-else>
             <product-card
+                v-if="!without.includes(product.id)"
                 v-for="product in products"
                 :product="product"
                 :key="product.id"
@@ -26,12 +27,14 @@ export default {
         Spin, ProductCard
     },
     props: {
-        type: {
-            type: String,
-            default: [1, 2, 3, 4]
+        type : {
+
         },
         title : {
-            type : String
+
+        },
+        without : {
+            default : []
         }
     },
     mounted() {
@@ -76,15 +79,17 @@ export default {
 }
 
 .pb__title {
-    margin:5px 15px;
+    display: block;
+    text-align: center;
 }
 
 .pb__row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .pb__row>*{
+    margin: 0 20px;
     flex: 0 1 22%;
 }
 </style>

@@ -50,3 +50,12 @@ Route::get(
         'getConditionsForProductsFilter'
     ]
 );
+
+Route::get(
+    'product/{productId}',
+    [
+        App\Http\Controllers\Api\ProductsController::class,
+        'getSingleProduct'
+    ]
+);
+

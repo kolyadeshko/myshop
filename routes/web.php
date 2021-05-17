@@ -18,11 +18,18 @@ Route::get('/', function () {
     return view('index');
 })->name('mainpage');
 
+// получить продукты по определенному типу
 Route::get('/products-type/{typeId}', [
     \App\Http\Controllers\ProductsController::class,
     'getProductsByType'
 ]);
-
+Route::get(
+    'product/{productId}',
+    [
+        App\Http\Controllers\ProductsController::class,
+        'getSingleProduct'
+    ]
+);
 Route::view('/promotion-products', 'products.promotionProducts');
 
 Route::prefix('admin')
@@ -54,7 +61,7 @@ Route::name('auth.')
                 App\Http\Controllers\Auth\LoginController::class,
                 'loginForm'
             ]
-        );
+        )->name('login');
         Route::post(
             'login',
             [
@@ -81,6 +88,13 @@ Route::name('auth.')
             return redirect('/');
         })
             ->name('logout')
-            -> withoutMiddleware('not.login');
+            ->withoutMiddleware('not.login');
     });
 
+
+// ajax запросы которые будут использовать сеансы
+Route::prefix('api')
+    ->middleware('auth')
+    ->group(function () {
+
+    });

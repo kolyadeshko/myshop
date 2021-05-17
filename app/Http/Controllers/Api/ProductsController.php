@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\App;
 
 class ProductsController extends Controller
 {
-
-
     public function getProductsByConditions(Request $request, $productsType)
     {
 
@@ -104,6 +102,8 @@ class ProductsController extends Controller
         }
         return $childrenIds;
     }
-
-
+    public function getSingleProduct($productId)
+    {
+        return Product::query() -> findOrFail($productId);
+    }
 }

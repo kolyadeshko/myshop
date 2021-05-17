@@ -5,33 +5,35 @@
                 <div class="prod-card__img">
                     <img :src="'/storage/' + product.img" alt="">
                 </div>
-                <div v-if="product.discount_price" class="prod-card__discount-percents">
-                    -{{ calcDiscountPercents() }}%
-                </div>
+                <discount-price
+                    :discount_price="product.discount_price"
+                    :price="product.price"
+                >
+                </discount-price>
                 <div class="prod-card__name title3">
                     {{ product.name }}
                 </div>
-                <div class="prod-card__price">
-                    <div class="title3">Цена:</div>
-                    <span class="discount-price" v-if="product.discount_price">
-                        {{ product.discount_price }}
-                    </span>
-                    <span class="price" :class="{ 'through' : product.discount_price}">{{ product.price}}</span>
-                </div>
+                <price
+                    :price="product.price"
+                    :discount_price="product.discount_price"
+                >
+                </price>
             </div>
         </div>
     </a>
 </template>
 
 <script>
+import Price from "../components/productCard/Price";
+import DiscountPrice from "../components/productCard/DiscountPercents";
+
+
 export default {
     name: "ProductCard",
     props : ['product'],
-    methods : {
-        calcDiscountPercents(){
-            return Math.round((this.product.price - this.product.discount_price) / this.product.price * 100);
-        }
-    }
+    components : {
+        Price,DiscountPrice
+    },
 
 }
 </script>
@@ -72,29 +74,5 @@ export default {
     text-align: center;
     padding: 0 10px;
 }
-.prod-card__price{
 
-}
-.price{
-    color: green;
-    font-size: 25px;
-}
-.price.through{
-    text-decoration: line-through;
-    color:red;
-    font-size: 19px;
-}
-.discount-price{
-    font-size: 25px;
-    color: green;
-}
-.prod-card__discount-percents{
-    position: absolute;
-    top:0;
-    right: 0;
-    padding: 10px;
-    background-color: red;
-    border-bottom-left-radius: 50%;
-
-}
 </style>

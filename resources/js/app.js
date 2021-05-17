@@ -11,6 +11,7 @@ Vue.component('products-block',require('./components/ProductsBlock.vue').default
 Vue.component('product-card',require('./components/ProductCard.vue').default);
 Vue.component('products',require('./components/Products.vue').default);
 Vue.component('message',require('./components/Message.vue').default);
+Vue.component('product-detail',require('./components/ProductDetail.vue').default)
 
 const app = new Vue({
     el: '#app'
