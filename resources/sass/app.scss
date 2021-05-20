@@ -18,6 +18,18 @@
         min-height: calc(100vh - 80px);
     }
 }
+.app__shopping-card{
+    width: 100%;
+}
+.header__shop-card-ico{
+    height: 50px;
+    cursor: pointer;
+    &>img{
+        overflow: hidden;
+        display: block;
+        max-height: 90%;
+    }
+}
 
 // ОБЩИЕ СТИИЛИ
 @mixin cool-text {

@@ -34,7 +34,9 @@ export default {
 
         },
         without : {
-            default : []
+            default : function (){
+                return [];
+            }
         }
     },
     mounted() {

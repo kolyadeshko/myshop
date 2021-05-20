@@ -54,13 +54,13 @@
 
                             <div class="header__auth">
                                 @auth
+                                    <div class="header__shop-card-ico" @click="shopCardActive = true">
+                                        <img src="/img/buy.ico" alt="">
+                                    </div>
                                     <div class="header__user">
                                         <div class="header__link-body">
                                             <img class="user-img" src="/img/user-ico.png" alt=""><a href="{{ '/user/' . auth() -> user() -> username }}" class="header__link">{{ auth() -> user() -> username }}</a>
                                             <div class="dropdown">
-                                                <a href="/shopping-cart" class="dropdown__link">
-                                                    Корзина
-                                                </a>
                                                 <a href="/logout" class="dropdown__link">
                                                     Выйти из аккаунта
                                                 </a>
@@ -88,6 +88,12 @@
             @if(session() -> has('message'))
                 <message :text="`{{ session() -> get('message') }}`"></message>
             @endif
+        </div>
+        <div class="app__shopping-card">
+            <shopping-card
+                v-if="shopCardActive"
+                v-on:close-shop-card="closeShopCard"
+            ></shopping-card>
         </div>
         <div class="content">
             @yield('content')

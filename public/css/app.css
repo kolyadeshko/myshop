@@ -102,6 +102,21 @@ select {
   min-height: calc(100vh - 80px);
 }
 
+.app__shopping-card {
+  width: 100%;
+}
+
+.header__shop-card-ico {
+  height: 50px;
+  cursor: pointer;
+}
+
+.header__shop-card-ico > img {
+  overflow: hidden;
+  display: block;
+  max-height: 90%;
+}
+
 .title1 {
   font-size: 25px;
   text-shadow: none;

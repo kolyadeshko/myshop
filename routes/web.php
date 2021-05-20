@@ -29,7 +29,7 @@ Route::get(
         App\Http\Controllers\ProductsController::class,
         'getSingleProduct'
     ]
-);
+) -> middleware('auth');
 Route::view('/promotion-products', 'products.promotionProducts');
 
 Route::prefix('admin')
@@ -96,5 +96,12 @@ Route::name('auth.')
 Route::prefix('api')
     ->middleware('auth')
     ->group(function () {
-
+        // добавление товара в корзину товаров (активную транзакцию)
+        Route::post(
+            'add-order-to-cart',
+            [
+                App\Http\Controllers\Api\OrderController::class,
+                'addOrderToCart'
+            ]
+        );
     });

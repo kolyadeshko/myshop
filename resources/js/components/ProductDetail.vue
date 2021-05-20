@@ -15,11 +15,14 @@
                         :discount_price="productLocal.discount_price"
                     >
                     </price>
+                    <discount-price
+                        :price="productLocal.price"
+                        :discount_price="productLocal.discount_price"
+                    ></discount-price>
+                    <add-order
+                        :product="productLocal"
+                    ></add-order>
                 </div>
-                <discount-price
-                    :price="productLocal.price"
-                    :discount_price="productLocal.discount_price"
-                ></discount-price>
             </div>
         </div>
         <div class="prod-detail__block" v-if="productLocal">
@@ -39,12 +42,17 @@ import ProductsBlock from "../components/ProductsBlock";
 import Spin from "../components/Spin";
 
 import axios from 'axios';
+import AddOrder from "./ShoppingCard/AddOrder";
 
 export default {
     name: "ProductDetail",
     props : ['productId'],
     components : {
-        Price,DiscountPrice,ProductsBlock,Spin
+        Price,
+        DiscountPrice,
+        ProductsBlock,
+        Spin,
+        AddOrder
     },
     beforeMount() {
         this.getSingleProduct()
@@ -97,6 +105,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px
+
 }
 .prod-detail__block{
     margin:15px 0;

@@ -13,7 +13,19 @@ Vue.component('products',require('./components/Products.vue').default);
 Vue.component('message',require('./components/Message.vue').default);
 Vue.component('product-detail',require('./components/ProductDetail.vue').default)
 
+import ShoppingCard from "./components/ShoppingCard/ShoppingCard";
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data : {
+        shopCardActive : false
+    },
+    components : {
+        ShoppingCard
+    },
+    methods : {
+        closeShopCard(){
+            this.shopCardActive = false;
+        }
+    }
 });
 
