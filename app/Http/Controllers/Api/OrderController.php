@@ -11,6 +11,17 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
+    // удаление заказа с транзакции
+    public function deleteOrderFromTransaction(Request $request,OrderRepository $orderRepository)
+    {
+        $orderRepository -> deleteMyOrderFromTransaction(
+            $request -> input('orderId'),
+            $request -> input('transactionId'),
+        );
+    }
+
+
+
     // добавление товара в корзину товаров (активную транзакцию)
     public function addOrderToCart(
         Request $request,

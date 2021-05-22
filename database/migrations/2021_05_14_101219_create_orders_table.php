@@ -23,7 +23,8 @@ class CreateOrdersTable extends Migration
         Schema::table('orders',function (Blueprint $table){
             $table -> foreign('transaction_id')
                 -> references('id')
-                ->on('transactions');
+                ->on('transactions')
+                -> onDelete('CASCADE');
             $table -> foreign('product_id')
                 -> references('id')
                 ->on('products');

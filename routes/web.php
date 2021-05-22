@@ -104,4 +104,28 @@ Route::prefix('api')
                 'addOrderToCart'
             ]
         );
+
+        // получение транзакций по статусу и всех вложенных заказов каждой транзакции
+        Route::get(
+            'get-transactions',
+            [
+                App\Http\Controllers\Api\TransactionController::class,
+                'getTransactionsWithOrders'
+            ]
+        );
+        // удалить транзакцию вместе со всеми заказами
+        Route::get(
+            'delete-my-transaction/{transactionId}',
+            [
+                App\Http\Controllers\Api\TransactionController::class,
+                'deleteMyTransaction'
+            ]
+        ) -> whereNumber(['transactionId']);
+        Route::get(
+            'delete-order-from-transaction',
+            [
+                App\Http\Controllers\Api\OrderController::class,
+                'deleteOrderFromTransaction'
+            ]
+        );
     });

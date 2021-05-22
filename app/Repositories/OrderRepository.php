@@ -3,11 +3,26 @@
 
 namespace App\Repositories;
 
-
+use App\Models\Transaction;
 use App\Models\Order;
 
 class OrderRepository
 {
+    public function deleteMyOrderFromTransaction($orderId,$transactionId)
+    {
+        // находим эту транзакцию в бд
+        $transaction = Transaction::query()
+            -> where('id',$transactionId)
+            -> where('user_id', auth()->user()->id);
+        // проверяем есть ли в бд такая транзакция
+        if (Transaction::query()->exists())
+        {
+            $order = Order::query()
+                -> where('transaction_id',$transactionId)
+                -> where('id',$orderId)
+                -> delete();
+        }
+    }
     // попытка добавить заказ в транзакцию
     // Ответ будет в виде массива с ключем status=true/false
     // и ключем message

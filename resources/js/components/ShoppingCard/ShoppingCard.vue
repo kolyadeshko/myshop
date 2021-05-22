@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="shop-card__body">
-                <spin></spin>
+                <transactions-list></transactions-list>
             </div>
         </div>
     </div>
@@ -18,11 +18,13 @@
 
 <script>
 import Spin from "../Spin";
+import TransactionsList from "./TransactionsList";
 
 export default {
     name: "ShoppingCard",
     components : {
-        Spin
+        Spin,
+        TransactionsList
     },
     methods : {
         closeShopCard(){
@@ -63,6 +65,7 @@ export default {
     border:2px solid #38c172;
     position: relative;
     background-color: white;
-    min-height: 500px;
+    height: 500px;
+    overflow: auto;
 }
 </style>
