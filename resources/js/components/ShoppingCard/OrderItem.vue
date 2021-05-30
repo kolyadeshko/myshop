@@ -5,12 +5,12 @@
                 <div class="order-item__img">
                     <img :src="'/storage/'+order.product.img" alt="">
                 </div>
-                <div class="order-item__body">
+                <a :href="'/product/'+order.product.id" class="order-item__body">
                     <div class="order-item__body-item">{{ order.product.name }}</div>
                     <div class="order-item__body-item">Сумма: {{ orderSum }} грн.</div>
                     <div class="order-item__body-item">Количество единиц: {{ order.count }}</div>
                     <div class="order-item__body-item">Цена товара: {{ price }} грн.</div>
-                </div>
+                </a>
                 <div class="order-item__cross" @click="deleteMyOrderFromTransaction">
                     ✖
                 </div>

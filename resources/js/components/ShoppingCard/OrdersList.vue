@@ -8,7 +8,10 @@
                 <div class="orders-list__total-sum">
                     Сумма: {{ calculateSum }} грн.
                 </div>
-                <div class="orders-list__cross" title="Удалить данный список товаров" @click="deleteTransaction">
+                <a href="/transaction" v-if="transaction.transaction_status_id === 1 && transaction.orders.length > 0" class="orders-list__btn button">
+                    Оформить
+                </a>
+                <div v-if="canDeleteTransaction" class="orders-list__cross" title="Удалить данный список товаров" @click="deleteTransaction">
                     ✖
                 </div>
             </div>
@@ -18,6 +21,7 @@
                                 :order="order"></order-item>
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -33,6 +37,9 @@ export default {
         transaction: {},
         title: {
             type: String
+        },
+        canDeleteTransaction: {
+
         }
     },
     components: {
@@ -77,9 +84,9 @@ export default {
 }
 
 .orders-list__title {
-    background-color: #1a202c;
+    background-color: #2db800;
     padding: 10px;
-    display: flex;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -100,5 +107,8 @@ export default {
 
 .orders-list__item {
     margin: 20px;
+}
+.orders-list__btn{
+
 }
 </style>

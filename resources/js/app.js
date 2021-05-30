@@ -11,7 +11,8 @@ Vue.component('products-block',require('./components/ProductsBlock.vue').default
 Vue.component('product-card',require('./components/ProductCard.vue').default);
 Vue.component('products',require('./components/Products.vue').default);
 Vue.component('message',require('./components/Message.vue').default);
-Vue.component('product-detail',require('./components/ProductDetail.vue').default)
+Vue.component('product-detail',require('./components/ProductDetail.vue').default);
+Vue.component('transaction-detail',require('./components/transaction/transactionDetail').default);
 
 import ShoppingCard from "./components/ShoppingCard/ShoppingCard";
 const app = new Vue({

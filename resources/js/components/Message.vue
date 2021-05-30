@@ -27,7 +27,7 @@ export default {
         hidden : false
     }),
     mounted() {
-        setTimeout(() => {this.hidden = true},3000)
+        setTimeout(() => {this.hidden = true},6000)
     }
 }
 </script>

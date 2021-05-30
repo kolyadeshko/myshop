@@ -11,6 +11,21 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
+    // получить все заказы которые принадлежат данной транзакции
+    public function getOrdersByTransactionId(OrderRepository $orderRepository,$transactionId)
+    {
+        // проверяем принадлежит ли данная транзация
+        // пользователю который запрашивает
+        abort_if(
+            Transaction::query()
+                ->where('user_id', auth() -> user() -> id)
+                ->where('id', $transactionId)
+                ->doesntExist(),
+            404
+        );
+        return $orderRepository -> getOrdersByTransactionId($transactionId);
+    }
+
     // удаление заказа с транзакции
     public function deleteOrderFromTransaction(Request $request,OrderRepository $orderRepository)
     {

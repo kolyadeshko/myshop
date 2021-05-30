@@ -59,3 +59,11 @@ Route::get(
     ]
 );
 
+// получить все статусы из таблички transaction_status
+Route::get(
+    'transaction-statuses',
+    [
+        App\Http\Controllers\Api\TransactionStatusController::class,
+        'getTransactionStatuses'
+    ]
+);

@@ -6,6 +6,7 @@
                 <div class="transactions__row">
                     <div v-for="transaction in transactions" class="transaction__orders-list">
                         <orders-list
+                            :can-delete-transaction="canDeleteTransaction"
                             title="Ваши сохраненные товары"
                             :transaction="transaction"
                             v-on:delete-transaction="deleteTransaction"
@@ -28,6 +29,10 @@ export default {
         transactionStatus: {
             default: 1
         },
+        canDeleteTransaction :
+            {
+                default: true
+            }
     },
     components: {
         OrdersList,
@@ -43,7 +48,9 @@ export default {
     methods: {
         getTransactions() {
             axios.get('/api/get-transactions', {
-                transactionStatus: this.transactionStatus
+                params : {
+                    transactionStatus: this.transactionStatus
+                }
             })
                 .then(response => {
                     this.transactions = response.data;

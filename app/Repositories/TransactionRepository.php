@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Order;
 use App\Models\Transaction;
 
-class TransactionRepository
+class TransactionRepository extends Repository
 {
     // Массив в кодами статуса транзакции для повышения читаемости кода
     static public $status = [
@@ -15,11 +15,7 @@ class TransactionRepository
         'COMPLETED' => 4,// завершенный заказ
         'CANCELED' => 5 // отмененный заказ
     ];
-    private $user;
-    public function __construct()
-    {
-        $this -> user = auth() -> user();
-    }
+
 
     // удалить опредленную транзакцию пользователя вмессте со всеми
     // ее товарами

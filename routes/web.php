@@ -30,7 +30,17 @@ Route::get(
         'getSingleProduct'
     ]
 ) -> middleware('auth');
+// продукты по акции
 Route::view('/promotion-products', 'products.promotionProducts');
+// страница транзакции
+Route::get(
+    'transaction/{transactionId?}',
+    [
+        App\Http\Controllers\TransactionController::class,
+        'transactionDetail'
+    ]
+) -> whereNumber('transactionId') -> middleware('auth');
+
 
 Route::prefix('admin')
     ->name('admin.')
@@ -126,6 +136,22 @@ Route::prefix('api')
             [
                 App\Http\Controllers\Api\OrderController::class,
                 'deleteOrderFromTransaction'
+            ]
+        );
+        Route::get(
+            'get-orders-by-transaction-id/{transactionId}',
+            [
+                App\Http\Controllers\Api\OrderController::class,
+                'getOrdersByTransactionId'
+            ]
+        );
+        // изменение статуса из "Заказ формируется" в статус "Заказ обработке"
+        // или наоброт
+        Route::get(
+            'change-transaction-status',
+            [
+                App\Http\Controllers\Api\TransactionController::class,
+                'changeTransactionStatus'
             ]
         );
     });
